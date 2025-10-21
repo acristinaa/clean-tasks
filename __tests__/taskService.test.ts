@@ -8,7 +8,6 @@ import {
 } from "../src/app/lib/taskService";
 import type { Task } from "../src/app/lib/types";
 
-// deterministic time
 const fakeNow = () => 1700000000000;
 
 function make(id: string, title = "t"): Task {
@@ -26,7 +25,6 @@ test("toggleTaskCompletion flips by id", () => {
   const tasks = [make("1"), make("2")];
   const res = toggleTaskCompletion(tasks, "2");
   expect(res.find((t) => t.id === "2")?.completed).toBe(true);
-  // immutability
   expect(tasks[1].completed).toBe(false);
 });
 
